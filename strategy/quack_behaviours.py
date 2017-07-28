@@ -1,5 +1,3 @@
-# coding=utf-8
-
 # Encapsulated classes for Quack behaviour
 
 

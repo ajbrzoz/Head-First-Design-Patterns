@@ -1,5 +1,3 @@
-# coding=utf-8
-
 # Abstract Duck class with subclasses
 
 
