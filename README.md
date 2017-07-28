@@ -6,3 +6,9 @@ This repo contains code examples from the book ["Head First Design Patterns"](ht
 ##### Patterns covered so far:
 
 * Strategy
+
+##### Remarks:
+
+It should be noted that the book's code was written in Java and that in Python, since it allows for multiple inheritance, there's no Java-style distinction between abstract superclass and interface. 
+
+* Strategy - There are several ways to define abstract classes in Python. Apart from the way I've used (raising an error when an unimplemented method is called from a subclass), abstract classes can be created with the [abc](https://docs.python.org/3/library/abc.html) module. There's also an interesting example in [Peter Norvig's IAQ](http://norvig.com/python-iaq.html) where he uses a separate function not only raising the appropriate error but also keeping track of the stack frame.  
