@@ -1,8 +1,8 @@
 # Abstract Duck class with subclasses
 
 
-from .fly_behaviours import FlyNoWay, FlyWithWings
-from .quack_behaviours import Quack
+from fly_behaviours import FlyNoWay, FlyWithWings
+from quack_behaviours import Quack
 
 
 # Abstract Duck class

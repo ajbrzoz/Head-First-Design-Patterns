@@ -14,16 +14,8 @@ class CurrentConditionsDisplay(Observer, DisplayElement):
         self.temperature = 0
         self.humidity = 0.0
         self.weather_data = weather_data
-    
-    @property
-    def weather_data(self):
-        return self.weather_data
-    
-    @weather_data.setter
-    def weather_data(self, weather_data):
-        self.weather_data = weather_data
         self.weather_data.register_observer(self)
-    
+        
     def update(self):
         self.temperature = self.weather_data.temperature
         self.humidity = self.weather_data.humidity

@@ -1,8 +1,8 @@
 # STRATEGY pattern
 
 
-from .ducks import MallardDuck, ModelDuck
-from .fly_behaviours import FlyRocketPowered
+from ducks import MallardDuck, ModelDuck
+from fly_behaviours import FlyRocketPowered
 
 
 if __name__ == "__main__":
