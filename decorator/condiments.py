@@ -1,4 +1,4 @@
-from beverages import Beverage
+from .beverages import Beverage
 
 class CondimentDecorator(Beverage):
     """Abstract decorator class"""

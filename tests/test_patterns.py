@@ -8,6 +8,9 @@ from strategy.fly_behaviours import FlyRocketPowered
 from observer.weather_data import WeatherData
 from observer.observers import CurrentConditionsDisplay
 
+from decorator.beverages import Espresso, DarkRoast
+from decorator.condiments import Mocha, Whip
+
 class StrategyTestCase(unittest.TestCase):
     
     def setUp(self):
@@ -58,3 +61,17 @@ class ObserverTestCase(unittest.TestCase):
             self.w_data.set_measurements(t, h, p)
             self.assertEqual(self.current_display.temperature, t)
             self.assertEqual(self.current_display.humidity, h)
+
+
+class DecoratorTestCase(unittest.TestCase):
+    
+    def test_component_without_decorators(self):
+        beverage = Espresso()
+        self.assertEqual(beverage.get_cost(), 1.99)
+        
+    def test_component_with_decorators(self):
+        beverage2 = DarkRoast()
+        beverage2 = Mocha(beverage2)
+        beverage2 = Mocha(beverage2)
+        beverage2 = Whip(beverage2)
+        self.assertEqual(beverage2.get_cost(), 1.49)
