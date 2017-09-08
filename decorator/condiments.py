@@ -27,6 +27,16 @@ class Mocha(CondimentDecorator):
 class Soy(CondimentDecorator):
     def __init__(self, beverage):
         super(Soy, self).__init__("Soy", 0.15, beverage)
+        
+    def get_cost(self):
+        if self.beverage.get_size() == "tall":
+            self.cost = 0.10
+        elif self.beverage.get_size() == "grande":
+            self.cost = 0.15
+        else:
+            self.cost = 0.20
+
+        return self.beverage.get_cost() + self.cost
 
 
 class Whip(CondimentDecorator):

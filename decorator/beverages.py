@@ -1,15 +1,19 @@
 class Beverage:
     """Abstract component class"""
     
-    def __init__(self, description, cost):
+    def __init__(self, description, cost, size="tall"):
         self.description = description
         self.cost = cost
+        self.size = size
     
     def get_description(self):
         return self.description
     
     def get_cost(self):
         return self.cost
+    
+    def get_size(self):
+        return self.size
 
     
 class HouseBlend(Beverage):
