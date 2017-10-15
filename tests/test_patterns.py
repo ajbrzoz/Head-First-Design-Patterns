@@ -11,6 +11,10 @@ from observer.observers import CurrentConditionsDisplay
 from decorator.beverages import Espresso, DarkRoast
 from decorator.condiments import Mocha, Whip
 
+from factory.stores import NYPizzaStore, ChicagoPizzaStore
+
+
+
 class StrategyTestCase(unittest.TestCase):
     
     def setUp(self):
@@ -75,3 +79,20 @@ class DecoratorTestCase(unittest.TestCase):
         beverage2 = Mocha(beverage2)
         beverage2 = Whip(beverage2)
         self.assertEqual(beverage2.get_cost(), 1.49)
+
+
+class FactoryTestCase(unittest.TestCase):
+    
+    def setUp(self):
+        self.ny_store = NYPizzaStore()
+        self.chicago_store = ChicagoPizzaStore()
+        
+    def test_pizza(self):
+        pizza1 = self.ny_store.order_pizza("cheese")
+        pizza2 = self.chicago_store.order_pizza("cheese")
+        self.assertEqual(pizza1.name, "NY Style Sauce and Cheese Pizza")
+        self.assertEqual(pizza2.name, "Chicago Style Deep Dish Cheese Pizza")
+
+
+if __name__ == '__main__':
+    unittest.main()
