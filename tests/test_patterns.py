@@ -13,6 +13,7 @@ from decorator.condiments import Mocha, Whip
 
 from factory.stores import NYPizzaStore, ChicagoPizzaStore
 
+from singleton.boiler import ChocolateBoiler
 
 
 class StrategyTestCase(unittest.TestCase):
@@ -93,6 +94,14 @@ class FactoryTestCase(unittest.TestCase):
         self.assertEqual(pizza1.name, "NY Style Sauce and Cheese Pizza")
         self.assertEqual(pizza2.name, "Chicago Style Deep Dish Cheese Pizza")
 
+
+class SingletonTestCase(unittest.TestCase):
+    def setUp(self):
+        self.cb1 = ChocolateBoiler()
+        self.cb2 = ChocolateBoiler()
+    
+    def test_singleton(self):
+        self.assertEqual(self.cb1, self.cb2)
 
 if __name__ == '__main__':
     unittest.main()

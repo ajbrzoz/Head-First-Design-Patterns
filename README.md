@@ -6,6 +6,10 @@ This repo contains code examples from the book ["Head First Design Patterns"](ht
 ##### Patterns covered so far:
 
 * Strategy
+* Observer
+* Decorator
+* Factory
+* Singleton
 
 ##### Remarks:
 
@@ -13,4 +17,6 @@ It should be noted that the book's code was written in Java and that in Python, 
 
 * Strategy - There are several ways to define abstract classes in Python. Apart from the way I've used (raising an error when an unimplemented method is called from a subclass), abstract classes can be created with the [abc](https://docs.python.org/3/library/abc.html) module. There's also an interesting example in [Peter Norvig's IAQ](http://norvig.com/python-iaq.html) where he uses a separate function not only raising the appropriate error but also keeping track of the stack frame.
 
-* Observer - This implementation is a little different from the original one: the Subject's attributes are not passed to the Observer directly as its update() function's parameters but they can be accessed through self.weather_data (Subject's i
+* Observer - This implementation is a little different from the original one: the Subject's attributes are not passed to the Observer directly as its update() function's parameters but they can be accessed through self.weather_data.
+
+* Singleton - Here we take advantage of Python's __new__ special method.
