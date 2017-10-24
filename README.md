@@ -10,6 +10,7 @@ This repo contains code examples from the book ["Head First Design Patterns"](ht
 * Decorator
 * Factory
 * Singleton
+* Command
 
 ##### Remarks:
 

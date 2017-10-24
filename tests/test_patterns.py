@@ -15,6 +15,10 @@ from factory.stores import NYPizzaStore, ChicagoPizzaStore
 
 from singleton.boiler import ChocolateBoiler
 
+from command.commands import LightOnCommand
+from command.receivers import Light
+from command.main import SimpleRemoteControl
+
 
 class StrategyTestCase(unittest.TestCase):
     
@@ -88,7 +92,7 @@ class FactoryTestCase(unittest.TestCase):
         self.ny_store = NYPizzaStore()
         self.chicago_store = ChicagoPizzaStore()
         
-    def test_pizza(self):
+    def test_factory(self):
         pizza1 = self.ny_store.order_pizza("cheese")
         pizza2 = self.chicago_store.order_pizza("cheese")
         self.assertEqual(pizza1.name, "NY Style Sauce and Cheese Pizza")
@@ -102,6 +106,22 @@ class SingletonTestCase(unittest.TestCase):
     
     def test_singleton(self):
         self.assertEqual(self.cb1, self.cb2)
+
+
+class CommandTestCase(unittest.TestCase):
+    def setUp(self):
+        self.captured = io.StringIO()
+        
+        self.remote = SimpleRemoteControl()
+        self.light = Light()
+        self.light_on = LightOnCommand(self.light)
+    
+    def test_light_command(self):
+        self.remote.set_command(self.light_on)
+        sys.stdout = self.captured
+        self.remote.button_was_pressed()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(self.captured.getvalue().strip(), "Light is On")
 
 if __name__ == '__main__':
     unittest.main()
