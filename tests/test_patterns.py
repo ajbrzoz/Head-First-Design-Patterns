@@ -17,7 +17,7 @@ from singleton.boiler import ChocolateBoiler
 
 from command.commands import LightOnCommand
 from command.receivers import Light
-from command.main import SimpleRemoteControl
+from command.remote import SimpleRemoteControl
 
 
 class StrategyTestCase(unittest.TestCase):
@@ -116,7 +116,7 @@ class CommandTestCase(unittest.TestCase):
         self.light = Light()
         self.light_on = LightOnCommand(self.light)
     
-    def test_light_command(self):
+    def test_simple_remote(self):
         self.remote.set_command(self.light_on)
         sys.stdout = self.captured
         self.remote.button_was_pressed()
