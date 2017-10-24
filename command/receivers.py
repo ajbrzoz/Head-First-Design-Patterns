@@ -38,11 +38,27 @@ class Stereo:
 
 
 class CeilingFan:
-    def __init__(self, location=""):
+    HIGH = 3
+    MEDIUM = 2
+    LOW = 1
+    OFF = 0
+    
+    def __init__(self, location="", speed=OFF):
         self.location = location
+        self.speed = speed
+        
+    def high(self):
+        self.speed = self.HIGH
+
+    def medium(self):
+        self.speed = self.MEDIUM
+        
+    def low(self):
+        self.speed = self.LOW
     
     def on(self):
         print("Ceiling Fan is On")
     
     def off(self):
         print("Ceiling Fan is Off")
+        self.speed = self.OFF

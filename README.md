@@ -11,6 +11,7 @@ This repo contains code examples from the book ["Head First Design Patterns"](ht
 * Factory
 * Singleton
 * Command
+* Adapter
 
 ##### Remarks:
 
@@ -21,3 +22,5 @@ It should be noted that the book's code was written in Java and that in Python, 
 * Observer - This implementation is a little different from the original one: the Subject's attributes are not passed to the Observer directly as its update() function's parameters but they can be accessed through self.weather_data.
 
 * Singleton - Here we take advantage of Python's __new__ special method.
+
+* Adapter - Since Java doesn't support multiple inheritance, it's impossible to implement a Class Adapter. Python, on the other hand, has multiple inheritance, so I've added an implementation of this type of Adapter pattern. The class inherits from the concrete WildTurkey class as it has all the necessary methods already implemented.
